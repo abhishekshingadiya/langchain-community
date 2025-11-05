@@ -1,5 +1,3 @@
-"""SQLAlchemy wrapper around a database."""
-
 from __future__ import annotations
 
 import re
@@ -12,11 +10,10 @@ from typing import (
     Optional,
     Sequence,
     TypedDict,
-    Union
+    Union,
 )
+
 import sqlalchemy
-from langchain_core._api import deprecated
-from langchain_core.utils import get_from_env
 from sqlalchemy import (
     MetaData,
     Table,
@@ -30,6 +27,9 @@ from sqlalchemy.exc import ProgrammingError, SQLAlchemyError
 from sqlalchemy.schema import CreateTable
 from sqlalchemy.sql.expression import Executable
 from sqlalchemy.types import NullType
+
+from langchain_core._api import deprecated
+from langchain_core.utils import get_from_env
 
 operator_map = {
     '=': lambda col, val: col == val,
